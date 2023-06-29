@@ -26,15 +26,15 @@ const App: React.FC = () => {
         <BrowserRouter>
           <Refine
             routerProvider={routerBindings}
-            dataProvider={dataProvider('https://api.fake-rest.refine.dev')}
+            dataProvider={dataProvider('http://localhost:3000')}
             notificationProvider={notificationProvider}
             resources={[
               {
-                name: 'users',
-                list: '/users',
-                create: '/users/create',
-                edit: '/users/edit/:id',
-                show: '/users/show/:id',
+                name: 'products',
+                list: '/products',
+                create: '/products/create',
+                edit: '/products/edit/:id',
+                show: '/products/show/:id',
               },
             ]}
             options={{
@@ -52,7 +52,7 @@ const App: React.FC = () => {
                   index
                   element={<NavigateToResource resource="users" />}
                 />
-                <Route path="users">
+                <Route path="products">
                   <Route index element={<MuiInferencer />} />
                   <Route path="show/:id" element={<MuiInferencer />} />
                   <Route path="edit/:id" element={<MuiInferencer />} />
